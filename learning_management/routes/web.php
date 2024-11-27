@@ -5,9 +5,8 @@ use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
-
 Route::middleware(['guest'])->group(function () {
-  
+    
     Route::get('/login', [SessionController::class, 'index'])->name('login');
     Route::post('/login', [SessionController::class, 'login']);
     Route::get('/register', [SessionController::class, 'showRegisterForm'])->name('register');
@@ -20,7 +19,10 @@ Route::get('/homepage', function () {
 
 
 
-Route::middleware(['auth'])->group(function () {
+
+
+
+    Route::middleware(['auth'])->group(function () {
 
     Route::get('/usersView', [StudentController::class, 'index'])->middleware('UserAccess:admin')->name('usersView');
 
@@ -38,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/create', [AdminController::class, 'createForAdmin'])->middleware('UserAccess:admin')->name('students.create');
     
     Route::get('/coursesView',[CoursesController::class,'index'])->middleware('UserAccess:admin,teacher')->name('coursesView');
-    Route::get('/coursesView', [CoursesController::class, 'index'])->middleware('UserAccess:admin,teacher')->name('coursesView');
+
     
     Route::get('/coursesUpdate/{id}/edit', [CoursesController::class, 'updateCourseForm'])->middleware('UserAccess:admin,teacher')->name('courses.updateForm');
     Route::put('/coursesUpdate/{id}', [CoursesController::class, 'updateCourse'])->middleware('UserAccess:admin,teacher')->name('courses.update');
@@ -48,7 +50,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/createCourse', [CoursesController::class, 'createCourse'])->middleware('UserAccess:admin,teacher')->name('courses.create');
     
     Route::delete('/courses/{id}', [CoursesController::class, 'deleteCourse'])->middleware('UserAccess:admin,teacher')->name('courses.destroy');
-   
+    
+    Route::get('/coursesViewStudent',[CoursesController::class,'studentCourses'])->name('courses.student');
+    
     
 
     Route::get('/student', [SessionController::class, 'student'])->middleware('UserAccess:student');

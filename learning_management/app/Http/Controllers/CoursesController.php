@@ -96,4 +96,10 @@ class CoursesController extends Controller
     return redirect()->route('coursesView')->with('success', 'Course updated successfully.');
 }
 
+    public function studentCourses(){
+        $courses = Courses::get();
+        
+        return view('coursesViewStudent', compact('courses'));
+    }
+
 }

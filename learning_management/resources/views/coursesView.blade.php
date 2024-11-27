@@ -33,6 +33,7 @@
                                 <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                             </form>
                             <a href="{{ route('courses.updateForm', $course->id) }}" class="btn btn-warning btn-sm mt-2">Edit</a>
+                            <a href="{{ route('courses.updateForm', $course->id) }}" class="btn btn-warning btn-sm mt-2">Content</a>
                         </div>
                     @endif
                 </div>
