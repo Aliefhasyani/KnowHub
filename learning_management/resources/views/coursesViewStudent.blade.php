@@ -16,7 +16,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">Created at: {{ $course->created_at }}</h6>
 
                         <!-- Enroll button -->
-                        @if (Auth::check())
+                        @if (Auth::check() && Auth::user()->role === 'student')
                             <form action="{{ route('courses.student', $course->id) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-primary mt-3">Enroll</button>
@@ -31,11 +31,9 @@
 
 <div>
     @if (Auth::check())
-    <a href="/logout" class="btn btn-md btn-danger mt-5 mb-3" style="margin-left: 20px" type="submit">Log out</a>
-    @endif
-    
-    @if (!Auth::check())
-    <a href="{{route('login')}}" class="btn btn-md btn-primary mt-5 mb-3" style="margin-left: 20px" type="submit">Log In</a>
+        <a href="/logout" class="btn btn-md btn-danger mt-5 mb-3" style="margin-left: 20px" type="submit">Log out</a>
+    @else
+        <a href="{{ route('login') }}" class="btn btn-md btn-primary mt-5 mb-3" style="margin-left: 20px" type="submit">Log In</a>
     @endif
 </div>
 
