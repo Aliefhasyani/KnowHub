@@ -82,7 +82,11 @@
         </table>
         <div class="d-flex justify-content-end cover-buttons">
             <a href="/create"><button class="btn btn-primary btn-md btn-square" type="submit">Add User</button></a>
+            
+        
             <a href="/admin"><button class="btn btn-warning btn-md btn-square" type="submit">Admin Dashboard</button></a>
+            
+        
             <a href="/logout"><button class="btn btn-danger btn-md btn-square" type="submit">Logout</button></a>
         </div>
     @endsection

@@ -17,15 +17,16 @@ Route::get('/homepage', function () {
     return view('homepage');
 })->name('homepage');
 
+Route::get('/coursesViewStudent',[CoursesController::class,'studentCourses'])->name('courses.student');
 
 
 
 
 
-    Route::middleware(['auth'])->group(function () {
-
+Route::middleware(['auth'])->group(function () {
+    
     Route::get('/usersView', [StudentController::class, 'index'])->middleware('UserAccess:admin')->name('usersView');
-
+    
     
     Route::get('/teacher', [SessionController::class, 'teacher'])->name('teacher')->middleware('UserAccess:teacher,admin');
     
@@ -40,21 +41,20 @@ Route::get('/homepage', function () {
     Route::post('/create', [AdminController::class, 'createForAdmin'])->middleware('UserAccess:admin')->name('students.create');
     
     Route::get('/coursesView',[CoursesController::class,'index'])->middleware('UserAccess:admin,teacher')->name('coursesView');
-
+    
     
     Route::get('/coursesUpdate/{id}/edit', [CoursesController::class, 'updateCourseForm'])->middleware('UserAccess:admin,teacher')->name('courses.updateForm');
     Route::put('/coursesUpdate/{id}', [CoursesController::class, 'updateCourse'])->middleware('UserAccess:admin,teacher')->name('courses.update');
-
+    
     
     Route::get('/createCourse', [CoursesController::class, 'showCreateForm'])->middleware('UserAccess:admin,teacher')->name('courses.create');
     Route::post('/createCourse', [CoursesController::class, 'createCourse'])->middleware('UserAccess:admin,teacher')->name('courses.create');
     
     Route::delete('/courses/{id}', [CoursesController::class, 'deleteCourse'])->middleware('UserAccess:admin,teacher')->name('courses.destroy');
     
-    Route::get('/coursesViewStudent',[CoursesController::class,'studentCourses'])->name('courses.student');
     
     
-
+    
     Route::get('/student', [SessionController::class, 'student'])->middleware('UserAccess:student');
     Route::get('/logout', [SessionController::class, 'logout']);
 });

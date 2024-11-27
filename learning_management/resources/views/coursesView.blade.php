@@ -50,7 +50,11 @@
     
 
     <a href="/logout" class="btn btn-md btn-danger  mt-5 mb-3" style="margin-left: 20px" type="submit">Log out</a>
-    <a href="/admin"><button class="btn btn-warning btn-md mt-5 mb-3 " type="" style="margin-left: 20px">Admin Dashboard</button></a>
+
+    @if(Auth::user()->role === 'admin')
+    <a href="/admin"><button class="btn btn-warning btn-md btn-square" type="submit">Admin Dashboard</button></a>
+    @endif
+    
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3BO8H1yP8j62R+5d9G5uVTdj4z32sFsKvYO2iIqVqgl7znG6DPvGVzbXW9ZF8W9" crossorigin="anonymous"></script>
 @endsection
