@@ -82,6 +82,8 @@ class CoursesController extends Controller
         'name' => 'required|string|max:255',
         'description' => 'required|string|max:1000',
         'teacher_name' => 'required|string|max:255',
+        'start_time'=>'required',
+        'end_time'=>'required'
     ], [
         'name.required' => 'Course name is required.',
         'description.required' => 'Course description is required.',
@@ -93,7 +95,7 @@ class CoursesController extends Controller
     $course = Courses::findOrFail($id);
 
    
-    $course->update($request->only(['name', 'description', 'teacher_name']));
+    $course->update($request->only(['name', 'description', 'teacher_name','start_time','end_time']));
 
    
     return redirect()->route('coursesView')->with('success', 'Course updated successfully.');

@@ -1,3 +1,6 @@
+@extends('layout.layout')
+
+@section('content')
 <!doctype html>
 <html lang="en">
 
@@ -8,13 +11,19 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
+<style>
+  .list-group-item:hover {
+      background-color: #e5e8eb; 
+    }
+</style>
 
 <body class="bg-light">
 
   
   <div class="container col-md-6 border my-3 rounded px-5 py-3 pb-5">
-    <h1 class="display-4 text-center">Halo!!</h1>
-    <p class="lead text-center">Selamat datang di halaman admin</p>
+    <h1 class="display-4 text-center">Welcome Admin</h1>
+    <br>
+
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white rounded mt-3">
       <div class="container-fluid">
@@ -43,3 +52,4 @@
 </body>
 
 </html>
+@endsection

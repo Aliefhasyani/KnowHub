@@ -13,9 +13,11 @@
                         <h6 class="card-subtitle mb-2 text-muted">
                             Created by: {{ $course->teacher_name }}
                         </h6>
-                        <h6 class="card-subtitle mb-2 text-muted">Created at: {{ $course->created_at }}</h6>
-
-                        <!-- Enroll button -->
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">Start Time: {{ $course->start_time }}</h6>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">End Time: {{ $course->end_time }}</h6>
+                      
                         @if (Auth::check() && Auth::user()->role === 'student')
                             <form action="{{ route('courses.student', $course->id) }}" method="POST">
                                 @csrf
