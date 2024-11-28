@@ -68,7 +68,7 @@
 <body>
     <div class="container py-5">
         <div class="login-container">
-            <h1 class="login-title">Register</h1>
+            <h1 class="login-title">REGISTER</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">

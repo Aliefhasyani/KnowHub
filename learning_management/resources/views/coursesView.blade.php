@@ -23,7 +23,10 @@
                         <h6 class="card-subtitle mb-2 text-muted">
                             Created by: {{ $course->teacher_name }}
                         </h6>
-                        <h6 class="card-subtitle mb-2 text-muted">Created at: {{ $course->created_at }}</h6>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">Start Time: {{ $course->start_time }}</h6>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">End Time: {{ $course->end_time }}</h6>
                     </div>
                     @if((Auth::user()->role === 'teacher' && $course->users->contains('id', Auth::id())) || Auth::user()->role === 'admin')
                         <div class="card-footer">
@@ -52,7 +55,7 @@
     <a href="/logout" class="btn btn-md btn-danger  mt-5 mb-3" style="margin-left: 20px" type="submit">Log out</a>
 
     @if(Auth::user()->role === 'admin')
-    <a href="/admin"><button class="btn btn-warning btn-md btn-square" type="submit">Admin Dashboard</button></a>
+    <a href="/admin"><button class="btn btn-warning btn-md mt-5 mb-3 btn-square" type="submit" style="margin-left: 20px">Admin Dashboard</button></a>
     @endif
     
 </div>

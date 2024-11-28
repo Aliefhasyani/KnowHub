@@ -35,6 +35,16 @@
                 <input type="text"  name="description" class="form-control">
             </div>
          
+            <div class="mb-3">
+                <label for="desc" class="form-label">Start Time</label>
+                <input type="date"  name="start_time" class="form-control">
+            </div>
+         
+            <div class="mb-3">
+                <label for="desc" class="form-label">End Time</label>
+                <input type="date"  name="end_time" class="form-control">
+            </div>
+         
             
           
             <div class="mb-3 d-grid">

@@ -7,8 +7,8 @@ use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 Route::middleware(['guest'])->group(function () {
     
-    Route::get('/login', [SessionController::class, 'index'])->name('login');
-    Route::post('/login', [SessionController::class, 'login']);
+    Route::get('/', [SessionController::class, 'index'])->name('login');
+    Route::post('/', [SessionController::class, 'login']);
     Route::get('/register', [SessionController::class, 'showRegisterForm'])->name('register');
     Route::post('/register', [SessionController::class, 'create']);
 });
@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     
     
     
-    Route::get('/student', [SessionController::class, 'student'])->middleware('UserAccess:student');
+    Route::get('/student', [SessionController::class, 'student']);
     Route::get('/logout', [SessionController::class, 'logout']);
 });
 

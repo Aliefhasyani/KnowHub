@@ -17,8 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->unsignedBigInteger('teacher_id'); // This ensures the teacher_id is always required
             $table->timestamps();
-        
-          
+           
         });
         
     }

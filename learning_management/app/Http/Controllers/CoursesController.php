@@ -32,6 +32,7 @@ class CoursesController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            
         ], [
             'name.required' => 'Course name is required',
             'description.required' => 'Course description is required',
@@ -42,6 +43,8 @@ class CoursesController extends Controller
             'description' => $request->description,
             'teacher_name' => Auth::user()->name,
             'teacher_id' => Auth::id(),
+            'start_time'=> $request->start_time,
+            'end_time' => $request->end_time
         ]);
     
         $course->users()->attach(Auth::id(), ['role' => 'teacher']);

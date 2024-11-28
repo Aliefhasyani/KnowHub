@@ -61,7 +61,7 @@ class SessionController extends Controller
     function logout(){
         Auth::logout();
         Session::flush();
-        return redirect('login');
+        return redirect('');
     }
     
 
