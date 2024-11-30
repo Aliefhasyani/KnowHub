@@ -28,7 +28,7 @@
           <a class="nav-link" href="{{route('homepage')}}" style="color: whitesmoke">Home <span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('courses.student')}}" style="color: whitesmoke" >Courses</a>
+          <a class="nav-link" href="{{route('courses.student')}}" style="color: whitesmoke" >Courses Catalog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" style="color: whitesmoke">Profile Page</a>
@@ -37,9 +37,19 @@
     </div>
 
     <ul class="navbar-nav ms-auto">
+      @if(!Auth::user())
       <li class="nav-item">
-        <a class="nav-link" href="{{route('login')}}">Log In</a>
+        <a class="nav-link" href="{{route('login')}}" style="color:white;">Log In</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('register')}}" style="color:white;">Register</a>
+      </li>
+      @endif
+      @if(Auth::user())
+      <li class="nav-item">
+        <a class="nav-link" href="/logout" style="color:white;">Log out</a>
+      </li>
+      @endif
     </ul>
   </nav>
 

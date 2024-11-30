@@ -10,10 +10,11 @@
         </div>
         <div class="col-md-4 text-end">
             <div class="d-flex flex-column gap-3">
-                
+                @if(Auth::user())
                 <a href="/logout" class="btn btn-outline-danger btn-lg d-flex align-items-center justify-content-center">
                     <i class="bi bi-box-arrow-right me-2"></i>Log Out
                 </a>
+                @endif
             </div>
         </div>
     </div>
@@ -38,9 +39,7 @@
             <i class="bi bi-journal-x display-3 text-muted mb-3"></i>
             <h2 class="text-muted">No Courses Available</h2>
             <p class="lead text-muted ">Start your learning journey by creating a new course</p>
-            <a href="{{ route('courses.create') }}" class="btn btn-primary btn-lg mt-3">
-                <i class="bi bi-plus-circle me-2"></i>Create First Course
-            </a>
+            
         </div>
     @else
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -75,15 +74,26 @@
                                     <i class="bi bi-calendar-x me-2 text-danger"></i>
                                     <small class="text-muted">Ends: {{ \Carbon\Carbon::parse($course->end_time)->format('M d, Y') }}</small>
                                 </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-people me-2 text-info"></i>
+                                    <small class="text-muted">Students Enrolled: {{ $course->student_count }}</small>
+                                </div>
+                                
                             </div>
                         </div>
 
                         @if (Auth::check() && Auth::user()->role === 'student')
-                        <form action="{{ route('courses.student', $course->id) }}" method="POST">
+                        <form action="{{ route('courses.enroll', $course->id) }}" method="POST">
                             @csrf
                             <button type="submit" class="btn btn-primary mt-3">Enroll</button>
                         </form>
-                    @endif
+                        @endif
+                        <div >
+                            <a href="{{ route('detail', $course->id) }}" >
+                                <button type="submit" class="btn btn-primary mt-3">View Details</button>
+                            </a>
+                        </div>
+
                       
                     </div>
                 </div>

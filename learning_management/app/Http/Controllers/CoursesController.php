@@ -100,11 +100,63 @@ class CoursesController extends Controller
    
     return redirect()->route('coursesView')->with('success', 'Course updated successfully.');
 }
+public function studentCourses()
+{
+    $courses = Courses::withCount(['users as student_count' => function ($query) {
+        $query->where('course_user.role', 'student'); // Specify the table alias for `role`
+    }])->get();
 
-    public function studentCourses(){
-        $courses = Courses::get();
-        
-        return view('coursesViewStudent', compact('courses'));
+    return view('coursesViewStudent', compact('courses'));
+}
+
+
+
+    public function enroll($id)
+    {
+    $user = Auth::user(); 
+    $course = Courses::findOrFail($id); 
+
+    
+    if ($course->users()->where('user_id', $user->id)->exists()) {
+        return redirect()->back()->with('success', 'You are already enrolled in this course.');
     }
+
+    
+    $course->users()->attach($user->id, ['role' => 'student']);
+
+    return redirect()->back()->with('success', 'Successfully enrolled in the course!');
+    }
+
+
+
+
+    public function homepage()
+    {
+        $topCourses = Courses::withCount(['users as student_count' => function ($query) {
+            $query->where('course_user.role', 'student'); 
+        }])
+        ->orderBy('student_count', 'desc')
+        ->take(5)
+        ->get();
+    
+        return view('homepage', compact('topCourses'));
+    }
+
+    public function show($id)
+    {
+      
+        $course = Courses::findOrFail($id);
+    
+      
+        return redirect()->route('coursesViewStudent');
+    }
+
+    public function showDetails($id){
+        $course = Courses::findOrFail($id);
+
+        return view('coursesDetails');
+    }
+    
+
 
 }

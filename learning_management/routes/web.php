@@ -13,9 +13,8 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/register', [SessionController::class, 'create']);
 });
 
-Route::get('/homepage', function () {
-    return view('homepage');
-})->name('homepage');
+
+Route::get('/homepage', [CoursesController::class, 'homepage'])->name('homepage');
 
 Route::get('/coursesViewStudent',[CoursesController::class,'studentCourses'])->name('courses.student');
 
@@ -52,7 +51,16 @@ Route::middleware(['auth'])->group(function () {
     
     Route::delete('/courses/{id}', [CoursesController::class, 'deleteCourse'])->middleware('UserAccess:admin,teacher')->name('courses.destroy');
     
-    
+    Route::get('/course/{id}', [CoursesController::class, 'show'])->name('course.details');
+
+    Route::post('/courses/enroll/{id}', [CoursesController::class, 'enroll'])->name('courses.enroll');
+
+    Route::get('/coursesDetails/{id}',[CoursesController::class,'showDetails'])->name('detail');
+
+   
+ 
+
+        
     
     
     Route::get('/student', [SessionController::class, 'student']);
