@@ -1,1 +1,1 @@
-"# KnowHub" 
+Web based education management platform
