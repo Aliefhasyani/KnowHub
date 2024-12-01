@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -57,13 +58,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/coursesDetails/{id}',[CoursesController::class,'showDetails'])->name('detail');
 
-   
+    Route::get('/profilePage/{id}', [ProfileController::class, 'profile'])->name('profile.page');
+
+    
  
 
         
     
     
-    Route::get('/student', [SessionController::class, 'student']);
-    Route::get('/logout', [SessionController::class, 'logout']);
+  
+    Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 });
 

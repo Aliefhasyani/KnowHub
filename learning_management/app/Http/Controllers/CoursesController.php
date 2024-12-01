@@ -100,14 +100,15 @@ class CoursesController extends Controller
    
     return redirect()->route('coursesView')->with('success', 'Course updated successfully.');
 }
-public function studentCourses()
-{
-    $courses = Courses::withCount(['users as student_count' => function ($query) {
-        $query->where('course_user.role', 'student'); // Specify the table alias for `role`
-    }])->get();
+    public function studentCourses()
+    {
+        $courses = Courses::withCount(['users as student_count' => function ($query) {
+            $query->where('course_user.role', 'student');
+    
+        }   ])->get();
 
-    return view('coursesViewStudent', compact('courses'));
-}
+        return view('coursesViewStudent', compact('courses'));
+    }
 
 
 
@@ -156,7 +157,9 @@ public function studentCourses()
 
         return view('coursesDetails');
     }
-    
 
+    
+    
+    
 
 }

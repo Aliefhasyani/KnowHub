@@ -6,12 +6,12 @@
     <div class="row mb-5 align-items-center bg-gradient-primary rounded-4 p-4 shadow-lg">
         <div class="col-md-8">
             <h1 class="display-5 fw-bold text-black mb-3">Course Management</h1>
-            <p class="lead text-white-75" style="color: black" >Manage your courses.</p>
+            <p class="lead text-white-75" style="color: white" >Manage your courses.</p>
         </div>
         <div class="col-md-4 text-end">
             <div class="d-flex flex-column gap-3">
-                <a href="{{ route('courses.create') }}" class="btn btn-outline-primary  btn-lg d-flex align-items-center justify-content-center" style="">
-                    <i class="bi bi-box-arrow-right text-primary"></i>Create New Course
+                <a href="{{ route('courses.create') }}" class="btn btn-outline-warning  btn-lg d-flex align-items-center justify-content-center text-white" style="">
+                    <i class="bi t text-primary"></i>Create New Course
                 </a>
                 @if(Auth::user()->role === 'admin')
                     <a href="/admin" class="btn btn-outline-warning btn-lg d-flex align-items-center justify-content-center" style="color: black; ">
@@ -74,7 +74,7 @@
                                     <i class="bi bi-person-check me-2 text-success"></i>
                                     <small class="text-muted">Description: {{ $course->description }}</small>
                                 </div>
-                                <div class="d-flex align-items-center mb-2">
+                                <div class="d-flex align-items-cente    r mb-2">
                                     <i class="bi bi-calendar-check me-2 text-primary"></i>
                                     <small class="text-muted">Starts: {{ \Carbon\Carbon::parse($course->start_time)->format('M d, Y') }}</small>
                                 </div>

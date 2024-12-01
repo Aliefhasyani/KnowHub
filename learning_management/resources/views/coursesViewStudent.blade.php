@@ -5,8 +5,8 @@
    
     <div class="row mb-5 align-items-center bg-gradient-primary rounded-4 p-4 shadow-lg">
         <div class="col-md-8">
-            <h1 class="display-5 fw-bold text-black mb-3">My Learning Dashboard</h1>
-            <p class="lead text-white-75" style="color: black" >Manage your courses, track your progress, and explore new learning opportunities.</p>
+            <h1 class="display-5 fw-bold text-white mb-3">My Learning Dashboard</h1>
+            <p class="lead text-white-75" style="color: white " >Manage your courses, track your progress, and explore new learning opportunities.</p>
         </div>
         <div class="col-md-4 text-end">
             <div class="d-flex flex-column gap-3">
