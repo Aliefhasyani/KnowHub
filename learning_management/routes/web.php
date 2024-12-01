@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+
 Route::middleware(['guest'])->group(function () {
     
     Route::get('/', [SessionController::class, 'index'])->name('login');
@@ -59,6 +60,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/coursesDetails/{id}',[CoursesController::class,'showDetails'])->name('detail');
 
     Route::get('/profilePage/{id}', [ProfileController::class, 'profile'])->name('profile.page');
+
+    Route::get('/courses/search', [CoursesController::class, 'search'])->name('courses.search');
+
+
 
     
  

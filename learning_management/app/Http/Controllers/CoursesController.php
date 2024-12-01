@@ -158,6 +158,20 @@ class CoursesController extends Controller
         return view('coursesDetails');
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $courses = Courses::where('name', 'LIKE', "%$query%")
+                         ->orWhere('description', 'LIKE', "%$query%")
+                         ->get();
+    
+        return view('coursesSearch', compact('courses'));
+    }
+    
+
+    
+    
+
     
     
     
