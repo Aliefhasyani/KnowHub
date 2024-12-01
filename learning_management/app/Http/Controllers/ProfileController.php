@@ -60,8 +60,8 @@ class ProfileController extends Controller
     }
     public function profile()
     {
-        $user = Auth::user(); // Get the logged-in user
-        $courses = $user->courses; // Fetch the enrolled courses using the relationship
+        $user = Auth::user(); 
+        $courses = $user->courses; 
 
         return view('profilePage', compact('user', 'courses'));
     }

@@ -33,7 +33,7 @@
         </div>
     @endif
 
-    {{-- Courses Grid --}}
+    
     @if($courses->isEmpty())
         <div class="text-center py-5 bg-light rounded-4">
             <i class="bi bi-journal-x display-3 text-muted mb-3"></i>
@@ -49,7 +49,7 @@
                        
                         <div class="card-header bg-gradient-primary text-white py-3">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="mb-0 fw-bold" style="color: black">{{ $course->name }}</h4>
+                                <h4 class="mb-0 fw-bold" style="color: white">{{ $course->name }}</h4>
                                 <span class="badge bg-light text-primary">ID: {{ $course->id }}</span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                     <small class="text-muted">Instructor: {{ $course->teacher_name }}</small>
                                 </div>
                                 <div class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-person-check me-2 text-success"></i>
+                                    <i class=" bi bi-chat-right-text me-2 text-success"></i>
                                     <small class="text-muted">Description: {{ $course->description }}</small>
                                 </div>
                                 <div class="d-flex align-items-center mb-2">

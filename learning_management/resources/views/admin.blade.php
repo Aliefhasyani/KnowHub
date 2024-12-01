@@ -40,7 +40,7 @@
         }
 
         .admin-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
+            transform: translateY(-10px); 
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
@@ -157,6 +157,7 @@
         <div class="admin-card">
             <div class="admin-header">
                 <h1 class="display-6">Admin Dashboard</h1>
+               
                 <p>Manage your platform with precision and ease</p>
             </div>
 

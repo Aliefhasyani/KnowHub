@@ -40,7 +40,7 @@
         }
 
         .admin-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
+            transform: translateY(-10px); 
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 

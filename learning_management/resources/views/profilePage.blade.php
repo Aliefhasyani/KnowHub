@@ -34,13 +34,13 @@
                             @foreach($courses as $course)
                                 <div class="col">
                                     <div class="card h-100 border-0 shadow-sm hover-lift">
-                                        <div class="card-header bg-gradient-primary text-black py-3">
+                                        <div class="card-header bg-gradient-primary text-white py-3">
                                             <h5 class="card-title mb-0">{{ $course->name }}</h5>
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text text-muted mb-3">
                                                 {{ Str::limit($course->description, 120) }}
-                                            </p>
+                                            </p>    
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-shrink-0 me-3">
                                                     <i class="fas fa-chalkboard-teacher text-muted"></i>

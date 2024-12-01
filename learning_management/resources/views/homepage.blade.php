@@ -99,11 +99,7 @@
         margin-top: 3rem;
     }
 
-    @media (max-width: 768px) {
-        .courses-title {
-            font-size: 2rem;
-        }
-    }
+
 </style>
 @section('content')
 <div class="container-fluid courses-container">
