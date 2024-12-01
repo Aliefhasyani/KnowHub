@@ -51,6 +51,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Courses::class, 'course_user')->withPivot('role')->withTimestamps();
     }
+
+    public function createdCourses()
+    {
+        return $this->hasMany(Courses::class, 'teacher_id'); // 'teacher_id' links the user to their courses
+    }
     
     
     

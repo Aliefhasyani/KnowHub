@@ -61,9 +61,18 @@ class ProfileController extends Controller
     public function profile()
     {
         $user = Auth::user(); 
-        $courses = $user->courses; 
-
+        
+        // Check user role
+        if ($user->role === 'teacher') {
+        
+            $courses = $user->createdCourses; 
+        } else {
+        
+            $courses = $user->courses; 
+        }
+    
         return view('profilePage', compact('user', 'courses'));
     }
+    
     
 }

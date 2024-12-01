@@ -101,12 +101,12 @@
                         </a>
                     </li>
                     @endauth
+                    @if(Auth::check())
                     @if(Auth::user()->role == 'admin')
-                    <li class="nav-item">
                         <a class="nav-link" href="/admin">
                             <i class="fas fa-home me-2"></i>Admin Dashboard
                         </a>
-                    </li>
+                    @endif
                     @endif
                 </ul>
     
