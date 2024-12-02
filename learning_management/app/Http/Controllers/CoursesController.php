@@ -150,7 +150,7 @@ class CoursesController extends Controller
         $course = Courses::findOrFail($id);
     
       
-        return redirect()->route('coursesViewStudent');
+        return redirect()->route('courses.student');
     }
 
 

@@ -8,15 +8,7 @@
             <h1 class="display-5 fw-bold text-white mb-3">My Learning Dashboard</h1>
             <p class="lead text-white-75" style="color: white " >Manage your courses, track your progress, and explore new learning opportunities.</p>
         </div>
-        <div class="col-md-4 text-end">
-            <div class="d-flex flex-column gap-3">
-                @if(Auth::user())
-                <a href="/logout" class="btn btn-outline-danger btn-lg d-flex align-items-center justify-content-center">
-                    <i class="bi bi-box-arrow-right me-2"></i>Log Out
-                </a>
-                @endif
-            </div>
-        </div>
+    
     </div>
 
    

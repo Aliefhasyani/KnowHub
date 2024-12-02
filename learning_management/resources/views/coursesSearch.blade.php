@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $course->name }}</h5>
                             <p class="card-text">{{ Str::limit($course->description, 100) }}</p>
-                            <a href="{{ route('detail', $course->id) }}" class="btn btn-primary">View Details</a>
+                            <a href="{{ route('course.content', $course->id) }}" class="btn btn-primary">View Details</a>
                         </div>
                     </div>
                 </div>

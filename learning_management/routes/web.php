@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::delete('/courses/{id}', [CoursesController::class, 'deleteCourse'])->middleware('UserAccess:admin,teacher')->name('courses.destroy');
     
-    Route::get('/course/{id}', [CoursesController::class, 'show'])->name('course.details');
+    Route::get('/course/{id}', [CoursesController::class, 'show'])->name('detail.course');
     
     Route::post('/courses/enroll/{id}', [CoursesController::class, 'enroll'])->name('courses.enroll');
     

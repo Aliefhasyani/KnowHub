@@ -14,7 +14,7 @@
                     <i class="bi t text-primary"></i>Create New Course
                 </a>
                 @if(Auth::user()->role === 'admin')
-                    <a href="/admin" class="btn btn-outline-warning btn-lg d-flex align-items-center justify-content-center" style="color: black; ">
+                    <a href="/admin" class="btn btn-outline-secondary btn-lg d-flex align-items-center justify-content-center" style="color: black; ">
                         <i class="bi bi-box-arrow-rightme-2"></i>Admin Dashboard
                     </a>
                 @endif
@@ -39,7 +39,7 @@
         </div>
     @endif
 
-    {{-- Courses Grid --}}
+    
     @if($courses->isEmpty())
         <div class="text-center py-5 bg-light rounded-4">
             <i class="bi bi-journal-x display-3 text-muted mb-3"></i>
