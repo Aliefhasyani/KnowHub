@@ -174,6 +174,13 @@
                     <i class="fas fa-graduation-cap icon"></i>
                     <span>Courses Management</span>
                 </a>
+                <a href="{{ route('contentManage') }}" class="admin-menu-item">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>Course Content</span>
+                </a>
+                
+                
+                
             </div>
         </div>
     </div>

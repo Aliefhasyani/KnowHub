@@ -23,9 +23,7 @@ class SessionController extends Controller
     function teacher(){
         return view('teacher');
     }
-    function student(){
-       return view('student');
-    }
+    
     
     function login(Request $request)
 {

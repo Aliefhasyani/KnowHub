@@ -101,12 +101,16 @@
                         </a>
                     </li>
                     @endauth
-                    @if(Auth::check())
+                  
                     @if(Auth::user()->role == 'admin')
                         <a class="nav-link" href="/admin">
                             <i class="fas fa-home me-2"></i>Admin Dashboard
                         </a>
                     @endif
+                    @if(Auth::user()->role == 'teacher')
+                    <a class="nav-link" href="/teacher">
+                        <i class="fas fa-home me-2"></i>Teacher Dashboard
+                    </a>
                     @endif
                 </ul>
     
@@ -263,8 +267,7 @@
                         @auth
                         <a href="{{ route('profile.page', ['id' => Auth::id()]) }}"><i class="fas fa-chevron-right me-2"></i>Profile</a>
                         @endauth
-                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Privacy Policy</a>
-                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Terms of Service</a>
+                        
                     </div>
                 </div>
 

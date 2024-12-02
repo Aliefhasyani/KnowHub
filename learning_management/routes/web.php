@@ -5,6 +5,8 @@ use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ContentController;
+use App\Models\Content;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -54,17 +56,26 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/courses/{id}', [CoursesController::class, 'deleteCourse'])->middleware('UserAccess:admin,teacher')->name('courses.destroy');
     
     Route::get('/course/{id}', [CoursesController::class, 'show'])->name('course.details');
-
+    
     Route::post('/courses/enroll/{id}', [CoursesController::class, 'enroll'])->name('courses.enroll');
-
-    Route::get('/coursesDetails/{id}',[CoursesController::class,'showDetails'])->name('detail');
-
+    
+    
+    Route::get('/courses/{id}/details', [CoursesController::class, 'showContent'])->name('course.content');
+    
+    
     Route::get('/profilePage/{id}', [ProfileController::class, 'profile'])->name('profile.page');
-
+    
     Route::get('/courses/search', [CoursesController::class, 'search'])->name('courses.search');
-
-
-
+    
+    
+    
+    
+    
+    Route::get('/manageContent', [ContentController::class, 'showContents'])->middleware('UserAccess:admin,teacher')->name('contentManage');
+    
+    Route::get('/createContent', [ContentController::class, 'showCreateForm'])->middleware('UserAccess:admin,teacher')->name('content.create');
+    Route::post('/createContent', [ContentController::class, 'createContent'])->middleware('UserAccess:admin,teacher')->name('content.create');
+    
     
  
 

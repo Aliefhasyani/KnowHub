@@ -58,11 +58,13 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+
     public function profile()
     {
         $user = Auth::user(); 
         
-        // Check user role
+       
         if ($user->role === 'teacher') {
         
             $courses = $user->createdCourses; 

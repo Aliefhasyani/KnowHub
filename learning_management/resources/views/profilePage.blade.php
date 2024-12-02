@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            @if(!Auth::user()->role == 'teacher')
+            @if(Auth::user()->role=='student')
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-white border-0 pt-4 pb-2">
                     <h2 class="h4 mb-0">My Enrolled Courses</h2>
@@ -25,9 +25,7 @@
                         <div class="alert alert-light text-center" role="alert">
                             <i class="fas fa-graduation-cap fa-3x text-muted mb-3"></i>
                             <p class="lead mb-0">You are not enrolled in any courses yet.</p>
-                            <a href="{{ route('courses.catalog') }}" class="btn btn-primary mt-3">
-                                Explore Courses
-                            </a>
+                            
                         </div>
                     @else
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -52,12 +50,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-footer bg-white border-0 pt-0 pb-3">
-                                            <a href="{{ route( 'detail', $course->id) }}" 
-                                               class="btn btn-outline-primary btn-sm w-100">
-                                                View Course Details
-                                            </a>
-                                        </div>
+                                    
                                     </div>
                                 </div>
                             @endforeach
@@ -107,12 +100,7 @@
                                     {{ Str::limit($course->description, 120) }}
                                 </p>
                             </div>
-                            <div class="card-footer bg-white border-0 pt-0 pb-3">
-                                <a href="{{ route('detail', $course->id) }}" 
-                                   class="btn btn-outline-primary btn-sm w-100">
-                                    View Course Details
-                                </a>
-                            </div>
+                          
                         </div>
                     </div>
                 @endforeach
@@ -139,10 +127,3 @@
 </style>
 @endpush
 
-@push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Optional: Add any interactive elements or animations
-    });
-</script>
-@endpush

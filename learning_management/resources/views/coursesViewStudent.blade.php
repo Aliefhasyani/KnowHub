@@ -89,9 +89,10 @@
                         </form>
                         @endif
                         <div >
-                            <a href="{{ route('detail', $course->id) }}" >
-                                <button type="submit" class="btn btn-primary mt-3">View Details</button>
+                            <a href="{{ route('course.content', $course->id) }}">
+                                <button class="btn btn-primary mt-3">View Contents</button>
                             </a>
+                            
                         </div>
 
                       

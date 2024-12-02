@@ -20,11 +20,12 @@ class CoursesController extends Controller
     }
 
   
-
     public function showCreateForm()
     {
-        return view('createCourse');
+        $courses = Courses::all(); // Get all courses
+        return view('createContent', compact('courses'));
     }
+    
     
     
     public function createCourse(Request $request)
@@ -152,11 +153,7 @@ class CoursesController extends Controller
         return redirect()->route('coursesViewStudent');
     }
 
-    public function showDetails($id){
-        $course = Courses::findOrFail($id);
 
-        return view('coursesDetails');
-    }
 
     public function search(Request $request)
     {
@@ -167,6 +164,17 @@ class CoursesController extends Controller
     
         return view('coursesSearch', compact('courses'));
     }
+
+    public function showContent($id)
+{
+    $course = Courses::findOrFail($id); 
+
+    return view('coursesDetails', compact('course'));
+}
+
+    
+
+
     
 
     
