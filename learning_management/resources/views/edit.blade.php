@@ -24,7 +24,7 @@
     @endif
     
 <div class="edit">
-    <h1 style="margin-top: 30px;">Edit Course</h1>
+    <h1 style="margin-top: 30px;">Edit User</h1>
     <form action="{{ route('students.update', $student->id) }}" method="POST" style="margin-top:20px;">
         @csrf
         @method('PUT')

@@ -75,9 +75,16 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/createContent', [ContentController::class, 'showCreateForm'])->middleware('UserAccess:admin,teacher')->name('content.create');
     Route::post('/createContent', [ContentController::class, 'createContent'])->middleware('UserAccess:admin,teacher')->name('content.create');
+    Route::delete('/createContent/{id}', [ContentController::class, 'deleteContent'])->middleware('UserAccess:admin,teacher')->name('content.destroy');
     
-    
- 
+    Route::get('/contentUpdate/{id}/edit', [ContentController::class, 'updateContentForm'])
+    ->middleware('UserAccess:admin,teacher')
+    ->name('content.updateForm');
+
+    Route::put('/contentUpdate/{id}', [ContentController::class, 'updateContent'])
+    ->middleware('UserAccess:admin,teacher')
+    ->name('content.update');
+
 
         
     

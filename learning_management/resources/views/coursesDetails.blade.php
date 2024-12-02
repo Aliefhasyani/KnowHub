@@ -42,6 +42,7 @@
             <p>{{ $course->users()->wherePivot('role', 'student')->count() }} students enrolled.</p>
 
             <a href="{{ route('courses.student') }}" class="btn btn-secondary mt-3">Back to Courses</a>
+            <a href="{{ route('courses.student') }}" class="btn btn-primary mt-3">Contents</a>
         </div>
     </div>
 </div>
