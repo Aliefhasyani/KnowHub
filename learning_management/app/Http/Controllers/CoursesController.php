@@ -172,6 +172,13 @@ class CoursesController extends Controller
     return view('coursesDetails', compact('course'));
 }
 
+public function courseContent($id)
+{
+    $course = Courses::findOrFail($id);
+    return view('courseContent', compact('course'));
+}
+
+
     
 
 

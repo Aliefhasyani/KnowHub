@@ -102,7 +102,7 @@
                                         </a>
                                     </div>
                                     <div class="btn-group">
-                                    <a href="" class="btn btn-sm btn-outline-primary">
+                                    <a href="{{ route('contents', ['id' => $course->id]) }}" class="btn btn-sm btn-outline-primary">
                                         <i class="bi bi-folder me-1"></i>Content
                                     </a> 
                                 </div>

@@ -80,11 +80,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/contentUpdate/{id}/edit', [ContentController::class, 'updateContentForm'])
     ->middleware('UserAccess:admin,teacher')
     ->name('content.updateForm');
-
+    
     Route::put('/contentUpdate/{id}', [ContentController::class, 'updateContent'])
     ->middleware('UserAccess:admin,teacher')
     ->name('content.update');
-
+    
+    
+    Route::get('/courses/{id}/content', [CoursesController::class, 'courseContent'])->name('contents');
 
         
     

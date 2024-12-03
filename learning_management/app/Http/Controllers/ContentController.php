@@ -78,6 +78,8 @@ class ContentController extends Controller
     
         return redirect()->route('contentManage')->with('success', 'Content updated successfully.');
     }
+
+  
     
 
 }
